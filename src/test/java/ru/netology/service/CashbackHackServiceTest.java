@@ -1,17 +1,16 @@
 package ru.netology.service;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+import org.junit.Assert;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class CashbackHackServiceTest {
+public class CashbackHackServiceTest {
 
     //Негативное внесение средств -1
     @Test
     public void startBorderMinusOne() {
         CashbackHackService service = new CashbackHackService();
 
-        assertThrows(NotFoundException.class, () -> service.remain(-1));
+        Assert.assertThrows(NotFoundException.class, () -> service.remain(-1));
     }
 
     //Внесение средств 0
@@ -19,7 +18,7 @@ class CashbackHackServiceTest {
     public void startBorderNull() {
         CashbackHackService service = new CashbackHackService();
 
-        assertThrows(NotFoundException.class, () -> service.remain(0));
+        Assert.assertThrows(NotFoundException.class, () -> service.remain(0));
     }
 
     //Внесение средств 1
@@ -31,7 +30,7 @@ class CashbackHackServiceTest {
 
         int excpected = 999;
         int actual = service.remain(amount);
-        assertEquals(actual, excpected);
+        Assert.assertEquals(actual, excpected);
     }
 
     //Внесение средств 400
@@ -43,7 +42,7 @@ class CashbackHackServiceTest {
 
         int excpected = 600;
         int actual = service.remain(amount);
-        assertEquals(actual, excpected);
+        Assert.assertEquals(actual, excpected);
     }
 
     //Внесение средств 999
@@ -55,7 +54,7 @@ class CashbackHackServiceTest {
 
         int excpected = 1;
         int actual = service.remain(amount);
-        assertEquals(actual, excpected);
+        Assert.assertEquals(actual, excpected);
     }
 
     //Внесение средств 1000
@@ -67,7 +66,7 @@ class CashbackHackServiceTest {
 
         int excpected = 0;
         int actual = service.remain(amount);
-        assertEquals(actual, excpected);
+        Assert.assertEquals(actual, excpected);
     }
 
     //Внесение средств 1001
@@ -79,7 +78,7 @@ class CashbackHackServiceTest {
 
         int excpected = 999;
         int actual = service.remain(amount);
-        assertEquals(actual, excpected);
+        Assert.assertEquals(actual, excpected);
     }
 
     //Внесение средств 4001
@@ -91,6 +90,6 @@ class CashbackHackServiceTest {
 
         int excpected = 999;
         int actual = service.remain(amount);
-        assertEquals(actual, excpected);
+        Assert.assertEquals(actual, excpected);
     }
 }
