@@ -18,7 +18,8 @@ public class CashbackHackServiceTest {
         int amount = -1;
 
         int actual = service.remain(amount);
-        int expected = 0;
+        int expected = -1;
+        Assert.assertEquals(actual, expected);
     }
 
     //Внесение средств 0
@@ -30,6 +31,7 @@ public class CashbackHackServiceTest {
 
         int actual = service.remain(amount);
         int expected = 0;
+        Assert.assertEquals(actual, expected);
     }
 
     //Внесение средств 1
@@ -111,7 +113,11 @@ public class CashbackHackServiceTest {
     public void jupiterStartBorderMinusOne() {
         CashbackHackService service = new CashbackHackService();
 
-        Assert.assertThrows(NotFoundException.class, () -> service.remain(-1));
+        int amount = -1;
+
+        int actual = service.remain(amount);
+        int expected = -1;
+        Assert.assertEquals(expected, actual);
     }
 
     //Внесение средств 0
@@ -119,7 +125,11 @@ public class CashbackHackServiceTest {
     public void jupiterStartBorderNull() {
         CashbackHackService service = new CashbackHackService();
 
-        Assert.assertThrows(NotFoundException.class, () -> service.remain(0));
+        int amount = 0;
+
+        int actual = service.remain(amount);
+        int expected = 0;
+        Assert.assertEquals(expected, actual);
     }
 
     //Внесение средств 1
@@ -131,7 +141,7 @@ public class CashbackHackServiceTest {
 
         int excpected = 999;
         int actual = service.remain(amount);
-        Assert.assertEquals(actual, excpected);
+        Assert.assertEquals(excpected, actual);
     }
 
     //Внесение средств 400
@@ -143,7 +153,7 @@ public class CashbackHackServiceTest {
 
         int excpected = 600;
         int actual = service.remain(amount);
-        Assert.assertEquals(actual, excpected);
+        Assert.assertEquals(excpected, actual);
     }
 
     //Внесение средств 999
@@ -155,7 +165,7 @@ public class CashbackHackServiceTest {
 
         int excpected = 1;
         int actual = service.remain(amount);
-        Assert.assertEquals(actual, excpected);
+        Assert.assertEquals(excpected, actual);
     }
 
     //Внесение средств 1000
@@ -167,7 +177,7 @@ public class CashbackHackServiceTest {
 
         int excpected = 0;
         int actual = service.remain(amount);
-        Assert.assertEquals(actual, excpected);
+        Assert.assertEquals(excpected, actual);
     }
 
     //Внесение средств 1001
@@ -179,7 +189,7 @@ public class CashbackHackServiceTest {
 
         int excpected = 999;
         int actual = service.remain(amount);
-        Assert.assertEquals(actual, excpected);
+        Assert.assertEquals(excpected, actual);
     }
 
     //Внесение средств 4001
@@ -191,7 +201,7 @@ public class CashbackHackServiceTest {
 
         int excpected = 999;
         int actual = service.remain(amount);
-        Assert.assertEquals(actual, excpected);
+        Assert.assertEquals(excpected, actual);
     }
 
 }
