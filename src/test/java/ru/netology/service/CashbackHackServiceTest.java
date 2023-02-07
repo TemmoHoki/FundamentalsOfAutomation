@@ -10,10 +10,11 @@ public class CashbackHackServiceTest {
     public void startBorderMinusOne() {
         CashbackHackService service = new CashbackHackService();
 
-        int amount = 0;
+        int amount = -1;
 
         int actual = service.remain(amount);
-        int expected = 0;
+        int expected = -1;
+        Assert.assertEquals(actual, expected);
     }
 
     //Внесение средств 0
@@ -25,6 +26,7 @@ public class CashbackHackServiceTest {
 
         int actual = service.remain(amount);
         int expected = 0;
+        Assert.assertEquals(actual, expected);
     }
 
     //Внесение средств 1
